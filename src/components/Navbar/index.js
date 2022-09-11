@@ -1,9 +1,18 @@
-import { NavbarContainer } from "./style";
+import { ALGO_BFS, ALGO_DFS } from "../../constants/algoConstants";
+import { AlgoButton, AlgoButtonsContainer, LogoContainer, NavbarContainer } from "./style";
 
-const Navbar = () => {
+const Navbar = ({ algo, setAlgo }) => {
     return (
         <NavbarContainer>
-            <h2>Navbar</h2>
+            <LogoContainer>Algo Visualizer</LogoContainer>
+            <AlgoButtonsContainer>
+                <AlgoButton isSelected={algo === ALGO_DFS} onClick={() => setAlgo(ALGO_DFS)}>
+                    DFS
+                </AlgoButton>
+                <AlgoButton isSelected={algo === ALGO_BFS} onClick={() => setAlgo(ALGO_BFS)}>
+                    BFS
+                </AlgoButton>
+            </AlgoButtonsContainer>
         </NavbarContainer>
     );
 };
