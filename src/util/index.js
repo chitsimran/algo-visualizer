@@ -54,15 +54,16 @@ export const animateGrid = (grid, setGrid, startNode, endNode, visitedNodes, spe
     }
 };
 
-const isStartNode = (startNode, node) => {
-    return node && node.row === startNode.row && node.col === startNode.col;
+const isSameNode = (nodeA, nodeB) => {
+    return nodeB && nodeB.row === nodeA.row && nodeB.col === nodeA.col;
 };
 
 const getPathNodes = (startNode, endNode, visitedNodes) => {
     console.log(visitedNodes);
     let pathNodes = [];
     let node = visitedNodes[visitedNodes.length - 1];
-    while (!isStartNode(startNode, node)) {
+    if (!isSameNode(endNode, node)) return;
+    while (!isSameNode(startNode, node)) {
         pathNodes.unshift(node);
         for (let i = 0; i < visitedNodes.length; i++) {
             if (visitedNodes[i].row === node.parent.row && visitedNodes[i].col === node.parent.col) {
