@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/algo-visualizer/static/js/main.4faddfac.js",
+    "main.css": "/algo-visualizer/static/css/main.03ff54bb.css",
+    "main.js": "/algo-visualizer/static/js/main.391d2b91.js",
     "index.html": "/algo-visualizer/index.html",
-    "main.4faddfac.js.map": "/algo-visualizer/static/js/main.4faddfac.js.map"
+    "main.03ff54bb.css.map": "/algo-visualizer/static/css/main.03ff54bb.css.map",
+    "main.391d2b91.js.map": "/algo-visualizer/static/js/main.391d2b91.js.map"
   },
   "entrypoints": [
-    "static/js/main.4faddfac.js"
+    "static/css/main.03ff54bb.css",
+    "static/js/main.391d2b91.js"
   ]
 }
