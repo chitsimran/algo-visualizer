@@ -6,5 +6,15 @@ export const NodeContainer = styled.div`
     width: 20px;
     border: 0.1px solid lightblue;
     background-color: ${(props) =>
-        props.isStartNode ? "green" : props.isFinishNode ? "red" : props.isVisited ? "blue" : "white"};
+        props.isStartNode
+            ? "green"
+            : props.isFinishNode
+            ? "red"
+            : props.isPath
+            ? "yellow"
+            : props.isVisited
+            ? "blue"
+            : props.isWall
+            ? "black"
+            : "white"};
 `;

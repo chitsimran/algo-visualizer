@@ -26,7 +26,7 @@ export const dfs = (grid, startNode, endNode) => {
     }
 
     const internalDFS = (row, col) => {
-        if (row < 0 || row >= n || col < 0 || col >= m || visited[row][col]) return false;
+        if (row < 0 || row >= n || col < 0 || col >= m || grid[row][col].isWall || visited[row][col]) return false;
 
         visited[row][col] = true;
         gridInOrder.push({ row, col });

@@ -33,7 +33,7 @@ const DFS = () => {
                 algoFunction={() => dfs(grid, START_NODE, END_NODE)}
                 speed={20}
             />
-            <Grid grid={grid} />
+            <Grid grid={grid} setGrid={setGrid} />
         </DFSContainer>
     );
 };

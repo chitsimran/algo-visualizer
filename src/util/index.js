@@ -13,16 +13,71 @@ export const initializeGrid = (startNode, endNode, n, m) => {
                 isStartNode: i === startNode.row && j === startNode.col,
                 isFinishNode: i === endNode.row && j === endNode.col,
                 isVisited: false,
+                isWall: false,
+                isPath: false,
             });
         }
     }
     return grid;
 };
 
-export const animateGrid = (grid, setGrid, startNode, endNode, visitedNodes, speed) => {
-    for (let i = 0; i < visitedNodes.length; i++) {
+export const animateGrid = (grid, setGrid, startNode, endNode, visitedNodes, speed, visualizePath) => {
+    for (let i = 0; i <= visitedNodes.length; i++) {
         setTimeout(() => {
-            const node = visitedNodes[i];
+            if (i === visitedNodes.length) {
+                if (visualizePath)
+                    animatePath(
+                        grid,
+                        setGrid,
+                        startNode,
+                        endNode,
+                        getPathNodes(startNode, endNode, visitedNodes),
+                        speed
+                    );
+            } else {
+                const node = visitedNodes[i];
+
+                let tempGrid = [...grid];
+                const newNode = {
+                    row: node.row,
+                    col: node.col,
+                    isStartNode: node.row === startNode.row && node.col === startNode.col,
+                    isFinishNode: node.row === endNode.row && node.col === endNode.col,
+                    isVisited: true,
+                    isWall: node.isWall,
+                    isPath: node.isPath,
+                };
+                tempGrid[node.row][node.col] = newNode;
+                setGrid(tempGrid);
+            }
+        }, speed * i);
+    }
+};
+
+const isStartNode = (startNode, node) => {
+    return node && node.row === startNode.row && node.col === startNode.col;
+};
+
+const getPathNodes = (startNode, endNode, visitedNodes) => {
+    console.log(visitedNodes);
+    let pathNodes = [];
+    let node = visitedNodes[visitedNodes.length - 1];
+    while (!isStartNode(startNode, node)) {
+        pathNodes.unshift(node);
+        for (let i = 0; i < visitedNodes.length; i++) {
+            if (visitedNodes[i].row === node.parent.row && visitedNodes[i].col === node.parent.col) {
+                node = visitedNodes[i];
+                break;
+            }
+        }
+    }
+    return pathNodes;
+};
+
+const animatePath = (grid, setGrid, startNode, endNode, pathNodes, speed) => {
+    for (let i = 0; i < pathNodes.length; i++) {
+        setTimeout(() => {
+            const node = pathNodes[i];
 
             let tempGrid = [...grid];
             const newNode = {
@@ -30,7 +85,9 @@ export const animateGrid = (grid, setGrid, startNode, endNode, visitedNodes, spe
                 col: node.col,
                 isStartNode: node.row === startNode.row && node.col === startNode.col,
                 isFinishNode: node.row === endNode.row && node.col === endNode.col,
-                isVisited: true,
+                isVisited: false,
+                isWall: false,
+                isPath: true,
             };
             tempGrid[node.row][node.col] = newNode;
             setGrid(tempGrid);

@@ -32,8 +32,9 @@ const BFS = () => {
                 endNode={END_NODE}
                 algoFunction={() => bfs(grid, START_NODE, END_NODE)}
                 speed={10}
+                visualizePath={true}
             />
-            <Grid grid={grid} />
+            <Grid grid={grid} setGrid={setGrid} />
         </BFSContainer>
     );
 };

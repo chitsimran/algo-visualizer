@@ -22,22 +22,22 @@ export const bfs = (grid, startNode, endNode) => {
 
     const queue = new Queue();
 
-    queue.push(startNode);
+    queue.push({ ...startNode, parent: startNode });
 
     while (!queue.isEmpty()) {
         const node = queue.pop();
 
-        if (!isNodeInGrid(node, n, m) || visited[node.row][node.col]) continue;
+        if (!isNodeInGrid(node, n, m) || grid[node.row][node.col].isWall || visited[node.row][node.col]) continue;
 
         visited[node.row][node.col] = true;
         visitedNodes.push(node);
 
         if (node.row === endNode.row && node.col === endNode.col) return visitedNodes;
 
-        queue.push({ row: node.row + 1, col: node.col });
-        queue.push({ row: node.row, col: node.col + 1 });
-        queue.push({ row: node.row - 1, col: node.col });
-        queue.push({ row: node.row, col: node.col - 1 });
+        queue.push({ row: node.row + 1, col: node.col, parent: { row: node.row, col: node.col } });
+        queue.push({ row: node.row, col: node.col + 1, parent: { row: node.row, col: node.col } });
+        queue.push({ row: node.row - 1, col: node.col, parent: { row: node.row, col: node.col } });
+        queue.push({ row: node.row, col: node.col - 1, parent: { row: node.row, col: node.col } });
     }
 
     return visitedNodes;
