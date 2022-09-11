@@ -1,3 +1,5 @@
 import styled from "styled-components";
 
-export const BFSContainer = styled.div``;
+export const BFSContainer = styled.div`
+    margin: auto;
+`;

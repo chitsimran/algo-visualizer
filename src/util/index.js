@@ -1,8 +1,12 @@
-export const initializeGrid = (startNode, endNode) => {
+import { useEffect } from "react";
+import { useState } from "react";
+
+export const initializeGrid = (startNode, endNode, n, m) => {
     let grid = [];
-    for (let i = 0; i < 20; i++) {
+
+    for (let i = 0; i < n; i++) {
         grid.push([]);
-        for (let j = 0; j < 40; j++) {
+        for (let j = 0; j < m; j++) {
             grid[i].push({
                 row: i,
                 col: j,
@@ -15,7 +19,7 @@ export const initializeGrid = (startNode, endNode) => {
     return grid;
 };
 
-export const animateGrid = (grid, setGrid, visitedNodes, speed) => {
+export const animateGrid = (grid, setGrid, startNode, endNode, visitedNodes, speed) => {
     for (let i = 0; i < visitedNodes.length; i++) {
         setTimeout(() => {
             const node = visitedNodes[i];
@@ -24,8 +28,8 @@ export const animateGrid = (grid, setGrid, visitedNodes, speed) => {
             const newNode = {
                 row: node.row,
                 col: node.col,
-                isStartNode: node.row === 5 && node.col === 10,
-                isFinishNode: node.row === 18 && node.col === 33,
+                isStartNode: node.row === startNode.row && node.col === startNode.col,
+                isFinishNode: node.row === endNode.row && node.col === endNode.col,
                 isVisited: true,
             };
             tempGrid[node.row][node.col] = newNode;
@@ -33,3 +37,29 @@ export const animateGrid = (grid, setGrid, visitedNodes, speed) => {
         }, speed * i);
     }
 };
+
+export function useWindowSize() {
+    // Initialize state with undefined width/height so server and client renders match
+    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+    const [windowSize, setWindowSize] = useState({
+        width: 400,
+        height: 200,
+    });
+    useEffect(() => {
+        // Handler to call on window resize
+        function handleResize() {
+            // Set window width/height to state
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+        // Add event listener
+        window.addEventListener("resize", handleResize);
+        // Call handler right away so state gets updated with initial window size
+        handleResize();
+        // Remove event listener on cleanup
+        return () => window.removeEventListener("resize", handleResize);
+    }, []); // Empty array ensures that effect is only run on mount
+    return windowSize;
+}
