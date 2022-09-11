@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/algo-visualizer/static/js/main.4faddfac.js",
+    "index.html": "/algo-visualizer/index.html",
+    "main.4faddfac.js.map": "/algo-visualizer/static/js/main.4faddfac.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.4faddfac.js"
+  ]
+}
