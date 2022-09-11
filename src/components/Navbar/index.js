@@ -1,7 +1,11 @@
 import { NavbarContainer } from "./style";
 
 const Navbar = () => {
-    return <NavbarContainer>Navbar</NavbarContainer>;
+    return (
+        <NavbarContainer>
+            <h2>Navbar</h2>
+        </NavbarContainer>
+    );
 };
 
 export default Navbar;

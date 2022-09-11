@@ -1,11 +1,9 @@
-import Dijkstra from "./components/Dijkstra";
-import Navbar from "./components/Navbar";
+import AlgoVisualizer from "./container/AlgoVisualizer";
 
 function App() {
     return (
         <div className="App">
-            <Navbar />
-            <Dijkstra />
+            <AlgoVisualizer />
         </div>
     );
 }
