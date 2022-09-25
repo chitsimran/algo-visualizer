@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.03ff54bb.css","mappings":"AAAA,EACI,4BACJ,CAEA,MACI,oBACJ","sources":["App.css"],"sourcesContent":["* {\n    font-family: 'Inter', sans-serif;\n}\n\n:root {\n    --theme-primary: teal;\n}\n"],"names":[],"sourceRoot":""}
