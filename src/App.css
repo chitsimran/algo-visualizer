@@ -4,4 +4,6 @@
 
 :root {
     --theme-primary: teal;
+    --theme-visited: #0096FF;
+    --theme-path: yellow;
 }

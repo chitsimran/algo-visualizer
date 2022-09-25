@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Node from "../Node";
-import { GridRow } from "./style";
+import { GridContainer, GridRow } from "./style";
 
 const Grid = ({ grid, setGrid }) => {
     const [isMousePressed, setIsMousePressed] = useState(false);
@@ -27,7 +27,7 @@ const Grid = ({ grid, setGrid }) => {
     };
 
     return (
-        <>
+        <GridContainer onMouseLeave={() => setIsMousePressed(false)}>
             {grid.map((row, rowId) => {
                 return (
                     <GridRow key={rowId}>
@@ -51,7 +51,7 @@ const Grid = ({ grid, setGrid }) => {
                     </GridRow>
                 );
             })}
-        </>
+        </GridContainer>
     );
 };
 

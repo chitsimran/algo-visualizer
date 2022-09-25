@@ -12,3 +12,10 @@ export const StartButton = styled.button`
         cursor: pointer;
     }
 `;
+
+export const RoundIcon = styled.div`
+    background-color: ${(props) => `${props.color}`};
+    border-radius: 24px;
+    width: 18px;
+    height: 18px;
+`;

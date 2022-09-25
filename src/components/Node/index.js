@@ -1,3 +1,4 @@
+import { RoundIcon } from "../common/style";
 import { NodeContainer } from "./style";
 
 const Node = ({
@@ -22,7 +23,10 @@ const Node = ({
             onMouseDown={() => handleMouseDown(row, col, isStartNode || isFinishNode)}
             onMouseEnter={() => handleMouseEnter(row, col, isStartNode || isFinishNode)}
             onMouseUp={() => handleMouseUp(row, col)}
-        ></NodeContainer>
+        >
+            {isStartNode && <RoundIcon color="green" />}
+            {isFinishNode && <RoundIcon color="red" />}
+        </NodeContainer>
     );
 };
 
