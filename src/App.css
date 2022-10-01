@@ -1,9 +1,11 @@
 * {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 :root {
-    --theme-primary: teal;
-    --theme-visited: #0096FF;
+    --theme-primary: #7E41E5;
+    --theme-secondary: #E92567;
+    --theme-tertiary: #F9DC46;
+    --theme-visited: #89CFF0;
     --theme-path: yellow;
 }

@@ -1,21 +1,31 @@
 import styled from "styled-components";
 
-export const StartButton = styled.button`
-    background-color: var(--theme-primary);
+export const StartButtonContainer = styled.button`
+    background-color: var(--theme-secondary);
     color: white;
-    border-radius: 16px;
+    border-radius: 4px;
     font-size: larger;
     padding: 8px 16px;
     border: none;
+    margin-right: 20px;
 
     &:hover {
         cursor: pointer;
     }
 `;
 
-export const RoundIcon = styled.div`
+export const ResetButtonContainer = styled.div`
+    color: var(--theme-secondary);
+    margin-left: 20px;
+    float: right;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+export const StartEndIcon = styled.div`
     background-color: ${(props) => `${props.color}`};
-    border-radius: 24px;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 `;

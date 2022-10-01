@@ -21,16 +21,15 @@ export const AlgoButtonsContainer = styled.div`
 
 export const AlgoButton = styled.button`
     border: none;
-    color: ${(props) => (props.isSelected ? "white" : "var(--theme-primary)")};
+    color: ${(props) => (props.isSelected ? "var(--theme-primary)" : "#282828")};
     margin: 0 20px;
-    background-color: ${(props) => (props.isSelected ? "var(--theme-primary)" : "white")};
+    background-color: white;
     font-size: large;
     border-radius: 24px;
     padding: 8px 24px;
 
     &:hover {
         cursor: pointer;
-        background-color: var(--theme-primary);
-        color: white;
+        color: var(--theme-primary);
     }
 `;
