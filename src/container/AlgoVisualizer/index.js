@@ -5,9 +5,11 @@ import Navbar from "../../components/Navbar";
 import { ALGO_DFS } from "../../constants/algoConstants";
 import { AlgoContainerBody, AlgoVisualizerContainer } from "./style";
 
-//TODO Add reset button
-//Make start and finish node dynamic (user selects)
+//TODO
 //Show info for given algos and shortest path
+//Disable user to edit grid when an algo is running and also after it has visualized it
+//Try to add some animation
+//Add legend or alert
 
 const AlgoVisualizer = () => {
     const [algo, setAlgo] = useState(ALGO_DFS);
