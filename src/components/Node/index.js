@@ -1,11 +1,11 @@
-import { RoundIcon } from "../common/style";
+import { StartEndIcon } from "../common/style";
 import { NodeContainer } from "./style";
 
 const Node = ({
     row,
     col,
     isStartNode,
-    isFinishNode,
+    isEndNode,
     isVisited,
     isWall,
     isPath,
@@ -16,16 +16,16 @@ const Node = ({
     return (
         <NodeContainer
             isStartNode={isStartNode}
-            isFinishNode={isFinishNode}
+            isEndNode={isEndNode}
             isVisited={isVisited}
             isWall={isWall}
             isPath={isPath}
-            onMouseDown={() => handleMouseDown(row, col, isStartNode || isFinishNode)}
-            onMouseEnter={() => handleMouseEnter(row, col, isStartNode || isFinishNode)}
+            onMouseDown={() => handleMouseDown(row, col, isStartNode, isEndNode)}
+            onMouseEnter={() => handleMouseEnter(row, col, isStartNode, isEndNode)}
             onMouseUp={() => handleMouseUp(row, col)}
         >
-            {isStartNode && <RoundIcon color="green" />}
-            {isFinishNode && <RoundIcon color="red" />}
+            {isStartNode && <StartEndIcon color="var(--theme-primary)" />}
+            {isEndNode && <StartEndIcon color="var(--theme-secondary)" />}
         </NodeContainer>
     );
 };

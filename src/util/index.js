@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-export const initializeGrid = (startNode, endNode, n, m) => {
+export const initializeGrid = (n, m) => {
     let grid = [];
 
     for (let i = 0; i < n; i++) {
@@ -10,8 +10,6 @@ export const initializeGrid = (startNode, endNode, n, m) => {
             grid[i].push({
                 row: i,
                 col: j,
-                isStartNode: i === startNode.row && j === startNode.col,
-                isFinishNode: i === endNode.row && j === endNode.col,
                 isVisited: false,
                 isWall: false,
                 isPath: false,
@@ -41,8 +39,6 @@ export const animateGrid = (grid, setGrid, startNode, endNode, visitedNodes, spe
                 const newNode = {
                     row: node.row,
                     col: node.col,
-                    isStartNode: node.row === startNode.row && node.col === startNode.col,
-                    isFinishNode: node.row === endNode.row && node.col === endNode.col,
                     isVisited: true,
                     isWall: node.isWall,
                     isPath: node.isPath,
@@ -84,8 +80,6 @@ const animatePath = (grid, setGrid, startNode, endNode, pathNodes, speed) => {
             const newNode = {
                 row: node.row,
                 col: node.col,
-                isStartNode: node.row === startNode.row && node.col === startNode.col,
-                isFinishNode: node.row === endNode.row && node.col === endNode.col,
                 isVisited: false,
                 isWall: false,
                 isPath: true,
