@@ -1,15 +1,26 @@
 import { animateGrid } from "../../util";
-import { StartButton } from "../common/style";
+import { ResetButtonContainer, StartButtonContainer } from "../common/style";
 import { GridHeaderContainer } from "./style";
 
-const GridHeader = ({ grid, setGrid, startNode, endNode, algoFunction, speed, visualizePath = false }) => {
+const GridHeader = ({
+    grid,
+    setGrid,
+    startNode,
+    endNode,
+    algoFunction,
+    speed,
+    visualizePath = false,
+    toggleReset,
+    setToggleReset,
+}) => {
     return (
         <GridHeaderContainer>
-            <StartButton
+            <StartButtonContainer
                 onClick={() => animateGrid(grid, setGrid, startNode, endNode, algoFunction(), speed, visualizePath)}
             >
                 Start
-            </StartButton>
+            </StartButtonContainer>
+            <ResetButtonContainer onClick={() => setToggleReset(!toggleReset)}>Reset</ResetButtonContainer>
         </GridHeaderContainer>
     );
 };
