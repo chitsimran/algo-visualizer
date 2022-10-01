@@ -1,3 +1,5 @@
+import { isNodeInGrid } from ".";
+
 export const dfs = (grid, startNode, endNode) => {
     if (!grid || !grid.length) return [];
     let n = grid.length,
@@ -6,11 +8,9 @@ export const dfs = (grid, startNode, endNode) => {
     if (
         !!!startNode ||
         !!!endNode ||
-        startNode === endNode ||
-        startNode.row < 0 ||
-        endNode.row < 0 ||
-        startNode.col >= n ||
-        endNode.col >= m
+        (startNode.row === endNode.row && startNode.col === endNode.col) ||
+        !isNodeInGrid(startNode, n, m) ||
+        !isNodeInGrid(endNode, n, m)
     )
         return [];
 
