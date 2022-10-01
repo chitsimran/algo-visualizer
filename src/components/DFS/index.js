@@ -8,32 +8,35 @@ import { DFSContainer } from "./style";
 const DFS = () => {
     const [grid, setGrid] = useState([]);
     const size = useWindowSize();
-
-    const START_NODE = {
-        row: 1,
-        col: 1,
-    };
-    const END_NODE = {
-        row: Math.trunc(size.height / 33),
-        col: Math.trunc(size.width / 33),
-    };
+    const [toggleReset, setToggleReset] = useState(true);
+    const [startNode, setStartNode] = useState({ row: 1, col: 1 });
+    const [endNode, setEndNode] = useState({ row: Math.trunc(size.height / 33), col: Math.trunc(size.width / 33) });
 
     useEffect(() => {
-        setGrid(initializeGrid(START_NODE, END_NODE, Math.trunc(size.height / 30), Math.trunc(size.width / 30)));
+        setGrid(initializeGrid(Math.trunc(size.height / 30), Math.trunc(size.width / 30)));
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [size]);
+    }, [size, toggleReset]);
 
     return (
         <DFSContainer>
             <GridHeader
                 grid={grid}
                 setGrid={setGrid}
-                startNode={START_NODE}
-                endNode={END_NODE}
-                algoFunction={() => dfs(grid, START_NODE, END_NODE)}
+                startNode={startNode}
+                endNode={endNode}
+                algoFunction={() => dfs(grid, startNode, endNode)}
                 speed={20}
+                toggleReset={toggleReset}
+                setToggleReset={setToggleReset}
             />
-            <Grid grid={grid} setGrid={setGrid} />
+            <Grid
+                grid={grid}
+                setGrid={setGrid}
+                startNode={startNode}
+                setStartNode={setStartNode}
+                endNode={endNode}
+                setEndNode={setEndNode}
+            />
         </DFSContainer>
     );
 };
