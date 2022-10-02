@@ -25,7 +25,6 @@ const Grid = ({ grid, setGrid, startNode, setStartNode, endNode, setEndNode }) =
 
     const toggleWalls = (row, col, isStartNode, isEndNode) => {
         if (isStartNode && isEndNode) {
-            console.log("test");
             return;
         }
         if ((isStartNode || isStartNodeSelected) && !isEndNode && !isEndNodeSelected) {
