@@ -18,9 +18,9 @@ const GridHeader = ({
             <StartButtonContainer
                 onClick={() => animateGrid(grid, setGrid, startNode, endNode, algoFunction(), speed, visualizePath)}
             >
-                Start
+                START
             </StartButtonContainer>
-            <ResetButtonContainer onClick={() => setToggleReset(!toggleReset)}>Reset</ResetButtonContainer>
+            <ResetButtonContainer onClick={() => setToggleReset(!toggleReset)}>RESET</ResetButtonContainer>
         </GridHeaderContainer>
     );
 };

@@ -4,7 +4,7 @@ export const StartButtonContainer = styled.button`
     background-color: var(--theme-secondary);
     color: white;
     border-radius: 4px;
-    font-size: larger;
+    font-size: large;
     padding: 8px 16px;
     border: none;
     margin-right: 20px;
