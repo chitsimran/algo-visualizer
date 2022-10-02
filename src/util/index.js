@@ -55,7 +55,6 @@ const isSameNode = (nodeA, nodeB) => {
 };
 
 const getPathNodes = (startNode, endNode, visitedNodes) => {
-    console.log(visitedNodes);
     let pathNodes = [];
     let node = visitedNodes[visitedNodes.length - 1];
     if (!isSameNode(endNode, node)) return;
