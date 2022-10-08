@@ -8,4 +8,5 @@ export const GridContainer = styled.div`
 
 export const GridRow = styled.div`
     display: flex;
+    justify-content: center;
 `;

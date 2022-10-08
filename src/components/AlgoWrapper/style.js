@@ -12,3 +12,5 @@ export const AlgoWrapperBody = styled.div`
         flex-direction: column;
     }
 `;
+
+export const GridWrapper = styled.div``;
