@@ -12,15 +12,24 @@ const GridHeader = ({
     visualizePath = false,
     toggleReset,
     setToggleReset,
+    isDisabled,
+    setIsDisabled,
 }) => {
+    const handleStart = () => {
+        if (isDisabled) return;
+        setIsDisabled(true);
+        animateGrid(grid, setGrid, startNode, endNode, algoFunction(), speed, visualizePath);
+    };
+
+    const handleReset = () => {
+        setIsDisabled(false);
+        setToggleReset(!toggleReset);
+    };
+
     return (
         <GridHeaderContainer>
-            <StartButtonContainer
-                onClick={() => animateGrid(grid, setGrid, startNode, endNode, algoFunction(), speed, visualizePath)}
-            >
-                START
-            </StartButtonContainer>
-            <ResetButtonContainer onClick={() => setToggleReset(!toggleReset)}>RESET</ResetButtonContainer>
+            <StartButtonContainer onClick={handleStart}>START</StartButtonContainer>
+            <ResetButtonContainer onClick={handleReset}>RESET</ResetButtonContainer>
         </GridHeaderContainer>
     );
 };

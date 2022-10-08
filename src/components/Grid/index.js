@@ -2,18 +2,19 @@ import { useState } from "react";
 import Node from "../Node";
 import { GridContainer, GridRow } from "./style";
 
-const Grid = ({ grid, setGrid, startNode, setStartNode, endNode, setEndNode }) => {
+const Grid = ({ grid, setGrid, startNode, setStartNode, endNode, setEndNode, isDisabled, setIsDisabled }) => {
     const [isMousePressed, setIsMousePressed] = useState(false);
     const [isStartNodeSelected, setIsStartNodeSelected] = useState(false);
     const [isEndNodeSelected, setIsEndNodeSelected] = useState(false);
 
     const handleMouseDown = (row, col, isStartNode, isEndNode) => {
+        if (isDisabled) return;
         setIsMousePressed(true);
         toggleWalls(row, col, isStartNode, isEndNode);
     };
 
     const handleMouseEnter = (row, col, isStartNode, isEndNode) => {
-        if (!isMousePressed) return;
+        if (!isMousePressed || isDisabled) return;
         toggleWalls(row, col, isStartNode, isEndNode);
     };
 
@@ -24,7 +25,10 @@ const Grid = ({ grid, setGrid, startNode, setStartNode, endNode, setEndNode }) =
     };
 
     const toggleWalls = (row, col, isStartNode, isEndNode) => {
-        if (isStartNode && isEndNode) {
+        if (
+            (isStartNode && isEndNode) ||
+            ((isStartNode || isEndNode || isStartNodeSelected || isEndNodeSelected) && grid[row][col].isWall)
+        ) {
             return;
         }
         if ((isStartNode || isStartNodeSelected) && !isEndNode && !isEndNodeSelected) {
