@@ -6,10 +6,9 @@ import { ALGO_DFS } from "../../constants/algoConstants";
 import { AlgoContainerBody, AlgoVisualizerContainer } from "./style";
 
 //TODO
-//Disable user to edit grid when an algo is running and also after it has visualized it
-//Don't let start or end node pass through a wall
-//Adjust start button, so they're with grid component
 //Try to add some animation
+//Style navbar
+//Add HomePage with detailed explanation
 
 const AlgoVisualizer = () => {
     const [algo, setAlgo] = useState(ALGO_DFS);
