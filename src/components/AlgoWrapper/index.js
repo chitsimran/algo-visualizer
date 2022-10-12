@@ -12,9 +12,10 @@ const AlgoWrapper = ({ algoFunction, speed, visualizePath = false, header, bodyT
     const size = useWindowSize();
     const [toggleReset, setToggleReset] = useState(true);
     const [startNode, setStartNode] = useState({ row: 1, col: 1 });
-    const [endNode, setEndNode] = useState({ row: Math.trunc(size.height / 40), col: Math.trunc(size.width / 40) });
+    const [endNode, setEndNode] = useState({ row: 2, col: 2 });
 
     useEffect(() => {
+        setEndNode({ row: Math.trunc(size.height / 40), col: Math.trunc(size.width / 40) });
         setGrid(initializeGrid(Math.trunc(size.height / 30), Math.trunc(size.width / 30)));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [size, toggleReset]);
