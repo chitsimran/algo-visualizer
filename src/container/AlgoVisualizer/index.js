@@ -6,8 +6,6 @@ import { ALGO_DFS } from "../../constants/algoConstants";
 import { AlgoContainerBody, AlgoVisualizerContainer } from "./style";
 
 //TODO
-//Try to add some animation
-//Style navbar
 //Add HomePage with detailed explanation
 
 const AlgoVisualizer = () => {

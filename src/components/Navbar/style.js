@@ -5,6 +5,10 @@ export const NavbarContainer = styled.div`
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
 `;
 
 export const LogoContainer = styled.div`

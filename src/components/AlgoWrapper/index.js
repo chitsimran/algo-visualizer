@@ -12,7 +12,7 @@ const AlgoWrapper = ({ algoFunction, speed, visualizePath = false, header, bodyT
     const size = useWindowSize();
     const [toggleReset, setToggleReset] = useState(true);
     const [startNode, setStartNode] = useState({ row: 1, col: 1 });
-    const [endNode, setEndNode] = useState({ row: Math.trunc(size.height / 33), col: Math.trunc(size.width / 33) });
+    const [endNode, setEndNode] = useState({ row: Math.trunc(size.height / 40), col: Math.trunc(size.width / 40) });
 
     useEffect(() => {
         setGrid(initializeGrid(Math.trunc(size.height / 30), Math.trunc(size.width / 30)));
